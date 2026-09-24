@@ -1,16 +1,9 @@
-import Image from "next/image";
+import Bannar from "@/components/common/HomePage/Bannar";
 
 export default function Home() {
   return (
     <div>
-      <button className="btn btn-neutral">Neutral</button>
-      <button className="btn btn-primary">Primary</button>
-      <button className="btn btn-secondary">Secondary</button>
-      <button className="btn btn-accent">Accent</button>
-      <button className="btn btn-info">Info</button>
-      <button className="btn btn-success">Success</button>
-      <button className="btn btn-warning">Warning</button>
-      <button className="btn btn-error">Error</button>
+      <Bannar></Bannar>
     </div>
   );
 }
