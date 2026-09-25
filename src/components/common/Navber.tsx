@@ -97,8 +97,8 @@ const Navber = () => {
               </li>
             </ul>
           </div>
-          <div className="navbar-end flex items-center gap-3">
-            <button className="flex items-center gap-2 text-gray-300">
+          <div className="navbar-end flex items-center gap-3 ">
+            <button className="flex items-center gap-2 text-gray-300 ">
               <span>Plan</span>
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-lime-400 text-sm font-bold text-black">
                 0
