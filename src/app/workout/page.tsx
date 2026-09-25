@@ -6,7 +6,7 @@ const Workout = async () => {
   const data = await res.json();
   console.log(data);
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto my-10">
       <div>
         <h1 className="text-2xl">THE LIBRARY</h1>
         <p className="py-3">Twelve lifts covering every major muscle group</p>

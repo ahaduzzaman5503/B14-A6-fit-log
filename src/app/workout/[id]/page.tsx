@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Tlibrary } from "@/type/type";
+import { FaRegBookmark } from "react-icons/fa";
+import { TbCalendarEvent } from "react-icons/tb";
 
 const WorkoutDetailPage = async ({
   params,
@@ -120,14 +122,21 @@ const WorkoutDetailPage = async ({
                 type="button"
                 className="rounded-md bg-[#c6ff00] px-5 py-3 text-sm font-bold text-black transition hover:bg-[#d4ff33]"
               >
-                Add to today`s plan
+                <span className="flex gap-2 items-center font-bold">
+                  {" "}
+                  <TbCalendarEvent />
+                  Add to today`s plan
+                </span>
               </button>
 
               <button
                 type="button"
-                className="rounded-md border border-gray-700 px-5 py-3 text-sm font-bold text-white transition hover:border-[#c6ff00]"
+                className="rounded-md border border-gray-700 px-5 py-3 text-md font-bold text-white transition hover:border-[#c6ff00]"
               >
-                Save for later
+                <span className="flex gap-2 items-center font-bold">
+                  {" "}
+                  <FaRegBookmark /> Save for later
+                </span>
               </button>
             </div>
           </div>
