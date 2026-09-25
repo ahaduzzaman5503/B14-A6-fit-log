@@ -1,11 +1,14 @@
 import Bannar from "@/components/common/HomePage/Bannar";
-import Library from "@/components/common/HomePage/Library";
+import Library from "./workout/page";
 
 export default function Home() {
   return (
     <div>
       <Bannar></Bannar>
-      <Library></Library>
+
+      <section id="library">
+        <Library />
+      </section>
     </div>
   );
 }

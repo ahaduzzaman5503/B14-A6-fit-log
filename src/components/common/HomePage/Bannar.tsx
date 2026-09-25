@@ -1,10 +1,11 @@
 import React from "react";
 import Bannarr from "@/assests/banner.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Bannar = () => {
   return (
-    <div className=" bg-[#0d0e11]">
+    <div className="bg-[#0d0e11]">
       <div className="container mx-auto px-4 py-3">
         <div className="relative overflow-hidden rounded-xl border border-[#262930] bg-[#15171c]">
           <div className="flex min-h-[340px] flex-col items-center justify-between gap-8 px-8 py-10 md:flex-row md:px-11">
@@ -23,9 +24,12 @@ const Bannar = () => {
                 it into today's plan, and watch the week's work add up.
               </p>
 
-              <button className="mt-6 rounded-md bg-[#c6ff00] px-5 py-3 text-[11px] font-extrabold uppercase text-black transition hover:bg-[#d4ff33]">
+              <Link
+                href="#library"
+                className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#c6ff00] px-5 py-3 text-[11px] font-extrabold uppercase text-black transition hover:bg-[#d4ff33]"
+              >
                 BROWSE WORKOUTS
-              </button>
+              </Link>
             </div>
 
             <div className="relative flex w-full justify-center md:w-[42%] md:justify-end">

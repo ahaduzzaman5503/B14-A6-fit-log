@@ -2,12 +2,13 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import logo from "@/assests/logo.png";
+import Link from "next/link";
 
 const Navber = () => {
   const [activeLink, setActiveLink] = useState("Workouts");
 
   return (
-    <div className="bg-base-100">
+    <div className="bg-base-100 sticky top-0 z-50">
       <section className="container mx-auto">
         <div className="navbar bg-base-200 shadow-sm">
           <div className="navbar-start">
@@ -39,7 +40,8 @@ const Navber = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <button
+                  <Link
+                    href="/"
                     onClick={() => setActiveLink("Workouts")}
                     className={`rounded-full px-5 py-2 text-sm font-semibold ${
                       activeLink === "Workouts"
@@ -48,10 +50,48 @@ const Navber = () => {
                     }`}
                   >
                     Workouts
-                  </button>
+                  </Link>
                 </li>
 
                 <li>
+                  <Link href={"/myplan"}>
+                    <button
+                      onClick={() => setActiveLink("My Plan")}
+                      className={`rounded-full px-5 py-2 text-sm font-semibold ${
+                        activeLink === "My Plan"
+                          ? "bg-lime-900 text-lime-400"
+                          : "text-gray-400 hover:text-white"
+                      }`}
+                    >
+                      My Plan
+                    </button>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <Image src={logo} alt="logo" width={20} height={20} />
+            <Link href={"/"}>
+              <span className="btn btn-ghost text-md">FITLOG</span>
+            </Link>
+          </div>
+          <div className="navbar-center hidden lg:flex">
+            <ul className="flex items-center gap-2">
+              <li>
+                <Link
+                  href="/"
+                  onClick={() => setActiveLink("Workouts")}
+                  className={`rounded-full px-5 py-2 text-sm font-semibold ${
+                    activeLink === "Workouts"
+                      ? "bg-lime-900 text-lime-400"
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  Workouts
+                </Link>
+              </li>
+
+              <li>
+                <Link href={"/myplan"}>
                   <button
                     onClick={() => setActiveLink("My Plan")}
                     className={`rounded-full px-5 py-2 text-sm font-semibold ${
@@ -62,55 +102,28 @@ const Navber = () => {
                   >
                     My Plan
                   </button>
-                </li>
-              </ul>
-            </div>
-            <Image src={logo} alt="logo" width={20} height={20} />
-            <span className="btn btn-ghost text-md">FITLOG</span>
-          </div>
-          <div className="navbar-center hidden lg:flex">
-            <ul className="flex items-center gap-2">
-              <li>
-                <button
-                  onClick={() => setActiveLink("Workouts")}
-                  className={`rounded-full px-5 py-2 text-sm font-semibold ${
-                    activeLink === "Workouts"
-                      ? "bg-lime-900 text-lime-400"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                >
-                  Workouts
-                </button>
-              </li>
-
-              <li>
-                <button
-                  onClick={() => setActiveLink("My Plan")}
-                  className={`rounded-full px-5 py-2 text-sm font-semibold ${
-                    activeLink === "My Plan"
-                      ? "bg-lime-900 text-lime-400"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                >
-                  My Plan
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
           <div className="navbar-end flex items-center gap-3 ">
-            <button className="flex items-center gap-2 text-gray-300 ">
-              <span>Plan</span>
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-lime-400 text-sm font-bold text-black">
-                0
-              </span>
-            </button>
+            <Link href={"/myplan"}>
+              <button className="flex items-center gap-2 text-gray-300 ">
+                <span>Plan</span>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ccff00] text-sm font-bold text-black">
+                  0
+                </span>
+              </button>
+            </Link>
 
-            <button className="flex items-center gap-2 text-gray-400">
-              <span>Saved</span>
-              <span className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-600 text-sm text-gray-300">
-                0
-              </span>
-            </button>
+            <Link href={"/myplan"}>
+              <button className="flex items-center gap-2 text-gray-400">
+                <span>Saved</span>
+                <span className="flex h-6 min-w-6 items-center justify-center rounded-full border border-gray-600 px-2 text-sm text-gray-300">
+                  0
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       </section>

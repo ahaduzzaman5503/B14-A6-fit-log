@@ -1,9 +1,13 @@
 import { Tlibrary } from "@/type/type";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function WorkoutCard({ sData }: { sData: Tlibrary }) {
   return (
-    <div className="w-full max-w-[650px] overflow-hidden rounded-[24px] border border-[#292d35] bg-[#15171c] shadow-lg">
+    <Link
+      href={`/workout/${sData.id}`}
+      className="w-full max-w-[650px] overflow-hidden rounded-[24px] border border-[#292d35] bg-[#15171c] shadow-lg"
+    >
       <div className="relative h-[320px] w-full overflow-hidden">
         <Image
           src={sData.image}
@@ -13,23 +17,25 @@ export default function WorkoutCard({ sData }: { sData: Tlibrary }) {
         />
       </div>
 
-      <div className="px-10 py-9">
-        <div className="mb-7 flex flex-wrap gap-3">
-          <span className="rounded-full bg-[#c6ff00] px-5 py-2 text-[14px] font-bold uppercase tracking-wide text-black">
+      <div className="px-5 py-5">
+        <div className="mb-5 flex flex-wrap gap-2">
+          <span className="rounded-full bg-[#c6ff00] p-2 text-[14px] font-bold uppercase tracking-wide text-black">
             {sData?.muscleGroups?.[0]}
           </span>
 
           {sData?.muscleGroups?.[1] && (
-            <span className="rounded-full bg-[#c6ff00] px-5 py-2 text-[14px] font-bold uppercase tracking-wide text-black">
+            <span className="rounded-full bg-[#c6ff00] p-2 text-[14px] font-bold uppercase tracking-wide text-black">
               {sData.muscleGroups[1]}
             </span>
           )}
         </div>
 
-        <h2 className="text-[34px] font-black uppercase leading-none tracking-tight text-white"></h2>
+        <h2 className="text-[18px] font-black uppercase leading-none tracking-tight text-white">
+          {sData.name}
+        </h2>
         <p className="mt-3 text-[20px] text-[#9ca3af]">{sData.equipment}</p>
         <div className="my-7 h-px w-full bg-[#292d35]" />
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-[18px] text-[#a1a8b3]">
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-[18px] text-[#a1a8b3]">
           <div className="flex items-center gap-2">
             <svg
               className="h-6 w-6"
@@ -69,6 +75,6 @@ export default function WorkoutCard({ sData }: { sData: Tlibrary }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
