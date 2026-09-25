@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "@/assests/logo.png";
 import Link from "next/link";
+import { WorkoutContext } from "@/context/WorkOutContext";
 
 const Navber = () => {
   const [activeLink, setActiveLink] = useState("Workouts");
+  const { planData } = useContext(WorkoutContext);
+  const { saveData } = useContext(WorkoutContext);
 
   return (
     <div className="bg-base-100 sticky top-0 z-50">
@@ -111,7 +114,7 @@ const Navber = () => {
               <button className="flex items-center gap-2 text-gray-300 ">
                 <span>Plan</span>
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ccff00] text-sm font-bold text-black">
-                  0
+                  {planData.length}
                 </span>
               </button>
             </Link>
@@ -120,7 +123,7 @@ const Navber = () => {
               <button className="flex items-center gap-2 text-gray-400">
                 <span>Saved</span>
                 <span className="flex h-6 min-w-6 items-center justify-center rounded-full border border-gray-600 px-2 text-sm text-gray-300">
-                  0
+                  {saveData.length}
                 </span>
               </button>
             </Link>

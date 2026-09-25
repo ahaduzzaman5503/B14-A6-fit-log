@@ -1,33 +1,37 @@
 "use client";
+
 import { WorkoutContext } from "@/context/WorkOutContext";
 import { Tlibrary } from "@/type/type";
 import { useContext } from "react";
 import { TbCalendarEvent } from "react-icons/tb";
+import { toast } from "react-toastify";
 
-const AddBtn = ({workout}: {workout: Tlibrary}) => {
+const AddBtn = ({ workout }: { workout: Tlibrary }) => {
+  const { planData, setplanData } = useContext(WorkoutContext);
 
-    const {planData, setplanData} = useContext(WorkoutContext)
-    
-    
   const handleAddBtn = () => {
-    setplanData([...planData, workout])
-    console.log("add button clicked");
-    alert(`Todeys plan data "${workout.name}" added`)
+    const isDuplicate = planData.some((item) => item.id === workout.id);
+
+    if (isDuplicate) {
+      toast.error(`You cannot add duplicate ${workout.name} again `);
+      return;
+    }
+
+    setplanData([...planData, workout]);
+    toast.success(`Added to today's plan${workout.name}`);
   };
+
   return (
-    <div>
-      <button
-        onClick={() => handleAddBtn()}
-        type="button"
-        className="rounded-md bg-[#c6ff00] px-5 py-3 text-sm font-bold text-black transition hover:bg-[#d4ff33]"
-      >
-        <span className="flex gap-2 items-center font-bold">
-          {" "}
-          <TbCalendarEvent />
-          Add to today`s plan
-        </span>
-      </button>
-    </div>
+    <button
+      onClick={handleAddBtn}
+      type="button"
+      className="rounded-md bg-[#c6ff00] px-5 py-3 text-sm font-bold text-black transition hover:bg-[#d4ff33]"
+    >
+      <span className="flex items-center gap-2 font-bold">
+        <TbCalendarEvent />
+        Add to today's plan
+      </span>
+    </button>
   );
 };
 
