@@ -4,12 +4,15 @@ import { WorkoutContext } from "@/context/WorkOutContext";
 import { Tlibrary } from "@/type/type";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, type Dispatch, type SetStateAction } from "react";
 import { MdDelete } from "react-icons/md";
 import { toast } from "react-toastify";
 
 const SaveBtnDataShow = ({ savebtndata }: { savebtndata: Tlibrary }) => {
-  const { saveData, setSaveData } = useContext(WorkoutContext);
+  const { saveData, setSaveData } = useContext(WorkoutContext) as {
+    saveData: Tlibrary[];
+    setSaveData: Dispatch<SetStateAction<Tlibrary[]>>;
+  };
 
   const handleDelete = () => {
     const updatedSaveData = saveData.filter(

@@ -2,12 +2,15 @@
 
 import { WorkoutContext } from "@/context/WorkOutContext";
 import { Tlibrary } from "@/type/type";
-import { useContext } from "react";
+import { useContext, type Dispatch, type SetStateAction } from "react";
 import { TbCalendarEvent } from "react-icons/tb";
 import { toast } from "react-toastify";
 
 const AddBtn = ({ workout }: { workout: Tlibrary }) => {
-  const { planData, setplanData } = useContext(WorkoutContext);
+  const { planData, setplanData } = useContext(WorkoutContext) as {
+    planData: Tlibrary[];
+    setplanData: Dispatch<SetStateAction<Tlibrary[]>>;
+  };
 
   const handleAddBtn = () => {
     const isDuplicate = planData.some((item) => item.id === workout.id);
@@ -29,7 +32,7 @@ const AddBtn = ({ workout }: { workout: Tlibrary }) => {
     >
       <span className="flex items-center gap-2 font-bold">
         <TbCalendarEvent />
-        Add to today's plan
+        Add to today&apos;s plan
       </span>
     </button>
   );

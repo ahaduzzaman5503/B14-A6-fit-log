@@ -7,7 +7,10 @@ import { MdDelete } from "react-icons/md";
 import { toast } from "react-toastify";
 
 const AddBtnDataShow = ({ planbtndata }: { planbtndata: Tlibrary }) => {
-  const { planData, setplanData } = useContext(WorkoutContext);
+  const { planData, setplanData } = useContext(WorkoutContext) as {
+    planData: Tlibrary[];
+    setplanData: React.Dispatch<React.SetStateAction<Tlibrary[]>>;
+  };
 
   const handleDelete = () => {
     const updatedPlan = planData.filter(

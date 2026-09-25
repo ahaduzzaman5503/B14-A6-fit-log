@@ -5,10 +5,14 @@ import logo from "@/assests/logo.png";
 import Link from "next/link";
 import { WorkoutContext } from "@/context/WorkOutContext";
 
+type WorkoutItem = Record<string, unknown>;
+
 const Navber = () => {
   const [activeLink, setActiveLink] = useState("Workouts");
-  const { planData } = useContext(WorkoutContext);
-  const { saveData } = useContext(WorkoutContext);
+  const { planData, saveData } = useContext(WorkoutContext) as {
+    planData: WorkoutItem[];
+    saveData: WorkoutItem[];
+  };
 
   return (
     <div className="bg-base-100 sticky top-0 z-50">

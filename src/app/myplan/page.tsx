@@ -11,7 +11,10 @@ type TabType = "today" | "saved";
 type SortType = "duration" | "calories" | "rating";
 
 const MyPlan = () => {
-  const { planData, saveData } = useContext(WorkoutContext);
+  const { planData, saveData } = useContext(WorkoutContext) as {
+    planData: Tlibrary[];
+    saveData: Tlibrary[];
+  };
   const [activeTab, setActiveTab] = useState<TabType>("today");
 
   // Sort state

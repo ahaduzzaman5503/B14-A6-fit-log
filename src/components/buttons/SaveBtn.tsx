@@ -1,12 +1,15 @@
 "use client";
 import { WorkoutContext } from "@/context/WorkOutContext";
 import { Tlibrary } from "@/type/type";
-import { useContext } from "react";
+import { useContext, type Dispatch, type SetStateAction } from "react";
 import { FaRegBookmark } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const SaveBtn = ({ workout }: { workout: Tlibrary }) => {
-  const { saveData, setSaveData } = useContext(WorkoutContext);
+  const { saveData, setSaveData } = useContext(WorkoutContext) as {
+    saveData: Tlibrary[];
+    setSaveData: Dispatch<SetStateAction<Tlibrary[]>>;
+  };
   console.log(saveData, "Save data");
 
   const handleSaveBtn = () => {
