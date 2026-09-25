@@ -10,7 +10,6 @@ export default function Home() {
       <section id="library">
         <Library />
       </section>
-      <Footer></Footer>
     </div>
   );
 }

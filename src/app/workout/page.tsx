@@ -4,7 +4,6 @@ import { Tlibrary } from "@/type/type";
 const Workout = async () => {
   const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
   const data = await res.json();
-  console.log(data);
   return (
     <div className="container mx-auto my-10">
       <div>

@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Tlibrary } from "@/type/type";
-import { FaRegBookmark } from "react-icons/fa";
-import { TbCalendarEvent } from "react-icons/tb";
+import AddBtn from "@/components/buttons/AddBtn";
+import SaveBtn from "@/components/buttons/SaveBtn";
 
 const WorkoutDetailPage = async ({
   params,
@@ -118,26 +118,8 @@ const WorkoutDetailPage = async ({
               </div>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              <button
-                type="button"
-                className="rounded-md bg-[#c6ff00] px-5 py-3 text-sm font-bold text-black transition hover:bg-[#d4ff33]"
-              >
-                <span className="flex gap-2 items-center font-bold">
-                  {" "}
-                  <TbCalendarEvent />
-                  Add to today`s plan
-                </span>
-              </button>
-
-              <button
-                type="button"
-                className="rounded-md border border-gray-700 px-5 py-3 text-md font-bold text-white transition hover:border-[#c6ff00]"
-              >
-                <span className="flex gap-2 items-center font-bold">
-                  {" "}
-                  <FaRegBookmark /> Save for later
-                </span>
-              </button>
+              <AddBtn workout={workout}></AddBtn>
+              <SaveBtn workout={workout}></SaveBtn>
             </div>
           </div>
         </div>
