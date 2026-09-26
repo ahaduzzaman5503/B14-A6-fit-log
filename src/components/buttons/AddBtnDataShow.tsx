@@ -22,7 +22,7 @@ const AddBtnDataShow = ({ planbtndata }: { planbtndata: Tlibrary }) => {
     toast.success(`${planbtndata.name} removed from today's plan`);
   };
 
-    const handleMarkAsDone = () => {
+  const handleMarkAsDone = () => {
     const updatedPlan = planData.filter(
       (workout) => workout.id !== planbtndata.id,
     );
@@ -54,7 +54,7 @@ const AddBtnDataShow = ({ planbtndata }: { planbtndata: Tlibrary }) => {
             {planbtndata.muscleGroups.join(", ")}
           </p>
 
-          <div className="mt-1.5 flex items-center gap-4 text-[11px] text-gray-400">
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-gray-400 sm:gap-4 sm:text-[11px]">
             <span className="flex items-center gap-1">
               <span className="text-[#baff00]">◷</span>
               {planbtndata.duration} min
@@ -72,23 +72,24 @@ const AddBtnDataShow = ({ planbtndata }: { planbtndata: Tlibrary }) => {
           </div>
         </div>
 
-        <div className="flex shrink-0 items-center gap-3">
+        <div className="flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
           <Link href={`/workout/${planbtndata.id}`}>
-            <button className="rounded-full border border-[#343a45] px-4 py-2 text-[10px] text-gray-300 hover:bg-[#20242b]">
+            <button className="w-full rounded-full border border-[#343a45] px-3 py-1.5 text-[9px] text-gray-300 hover:bg-[#20242b] sm:w-auto sm:px-4 sm:py-2 sm:text-[10px]">
               View Details
             </button>
           </Link>
 
-          <button 
-          onClick={handleMarkAsDone}
-          className="flex items-center gap-1.5 rounded-full bg-[#baff00] px-4 py-2 text-[10px] font-bold text-black hover:bg-[#c8ff32]">
+          <button
+            onClick={handleMarkAsDone}
+            className="flex w-full items-center justify-center gap-1 rounded-full bg-[#baff00] px-3 py-1.5 text-[9px] font-bold text-black hover:bg-[#c8ff32] sm:w-auto sm:px-4 sm:py-2 sm:text-[10px]"
+          >
             <span>✓</span>
             Mark as Done
           </button>
 
           <button
             onClick={handleDelete}
-            className="ml-1 text-red-500 border-2 rounded-full p-1 text-xl"
+            className="mx-auto rounded-full border-2 border-red-500 p-1 text-lg text-red-500 sm:mx-0 sm:text-xl"
           >
             <MdDelete />
           </button>
